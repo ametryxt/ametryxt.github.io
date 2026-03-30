@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ametryxt // System_Root</title>
+    <style>
+        /* 1. CORE THEME & COLORS */
+        :root {
+            --bg-color: #0a0b0d;
+            --text-color: #00ff41; /* Matrix Green */
+            --accent-color: #00ccff; /* Cyber Blue */
+            --border-color: #1a1c20;
+            --glow: 0 0 10px rgba(0, 255, 65, 0.2);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 2. CRT SCANLINE EFFECT */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* 3. MAIN CONTAINER */
+        .container {
+            max-width: 800px;
+            width: 100%;
+            border: 1px solid var(--text-color);
+            padding: 30px;
+            box-shadow: var(--glow);
+            position: relative;
+        }
+
+        header {
+            border-bottom: 1px solid var(--text-color);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0 0 20px 0;
+            text-shadow: var(--glow);
+        }
+
+        /* 4. AVATAR BOX */
+        .avatar-monitor {
+            border: 1px solid var(--text-color);
+            width: 150px;
+            height: 150px;
+            margin-bottom: 30px;
+            padding: 5px;
+            background: #111;
+        }
+
+        .avatar-monitor img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(1.1) contrast(1.2);
+        }
+
+        /* 5. SECTIONS */
+        section { margin-bottom: 40px; }
+        h3 { 
+            color: var(--accent-color); 
+            border-bottom: 1px dashed var(--accent-color);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .label { color: var(--accent-color); font-weight: bold; margin-right: 10px; }
+
+        /* 6. SYSTEM LOG STYLING */
+        .log-entry {
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            border-left: 2px solid var(--text-color);
+            padding-left: 10px;
+        }
+        .log-date { opacity: 0.6; margin-right: 10px; }
+
+        /* 7. LINKS */
+        .system-link {
+            color: var(--text-color);
+            text-decoration: none;
+            border: 1px solid var(--text-color);
+            padding: 5px 15px;
+            display: inline-block;
+            margin: 10px 10px 0 0;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .discord:hover {
+            color: #5865F2 !important; border-color: #5865F2 !important;
+            box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+        }
+
+        .youtube:hover {
+            color: #ff0000 !important; border-color: #ff0000 !important;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px; height: 1.2rem;
+            background-color: var(--text-color);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span>ID: AMETRYXT_ROOT</span>
+        <span>LAST_LOGIN: <span id="login-time">[ PENDING... ]</span></span>
+    </header>
+
+    <main>
+        <h1>System_Profile<span class="cursor"></span></h1>
+
+        <!-- Profile Picture Box -->
+        <div class="avatar-monitor">
+            <img src="avatar.png" alt="[ NO_IMG_FOUND ]">
+        </div>
+        
+        <section>
+            <p><span class="label">> USER:</span> Ametryxt</p>
+            <p><span class="label">> BIO:</span> Developer and Content Creator exploring digital boundaries.</p>
+        </section>
+
+        <!-- System Log Section -->
+        <section>
+            <h3>[ SYSTEM_LOG ]</h3>
+            <div class="log-entry"><span class="log-date">[ 2026.03.30 ]</span> >> PORTFOLIO_V1 DEPLOYED SUCCESSFULLY</div>
+            <div class="log-entry"><span class="log-date">[ 2026.03.28 ]</span> >> YOUTUBE CHANNEL CONNECTED</div>
+            <div class="log-entry"><span class="log-date">[ 2026.03.25 ]</span> >> ESTABLISHED DISCORD COMMS INTERFACE</div>
+        </section>
+
+        <section>
+            <h3>[ TRANSMISSION_CHANNELS ]</h3>
+            <br>
+            <a href="https://discordapp.com" target="_blank" class="system-link discord">
+                [ DISCORD_COMMS ]
+            </a>
+            <a href="https://www.youtube.com" target="_blank" class="system-link youtube">
+                [ YOUTUBE_STREAM ]
+            </a>
+        </section>
+    </main>
+
+    <footer style="margin-top: 50px; font-size: 0.7rem; opacity: 0.4;">
+        AMETRYXT // END_OF_LINE
+    </footer>
+</div>
+
+<script>
+    function updateTimestamp() {
+        const now = new Date();
+        const options = { 
+            weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+            hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false 
+        };
+        document.getElementById('login-time').innerText = now.toLocaleString('en-US', options).toUpperCase();
+    }
+    setInterval(updateTimestamp, 1000);
+    updateTimestamp();
+</script>
+
+</body>
+</html>
